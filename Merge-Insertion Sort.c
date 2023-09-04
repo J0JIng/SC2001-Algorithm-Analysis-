@@ -87,7 +87,7 @@ void HybridSort(int *array, int n, int m, int S) {
     else
         InsertionSort(array, n, m);
 
-    //algo B
+    // Algo B
     // if (m - n <= 0) return;
     
     // if (mid - n + 1 <= S) {
