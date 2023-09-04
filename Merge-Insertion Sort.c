@@ -77,6 +77,7 @@ int compare(int a, int b) {
 void HybridSort(int *array, int n, int m, int S) {
     int mid = (n + m) / 2;
 
+    // algo A
     if (m - n <= 0) return;
     else if (m - n > S) {
         HybridSort(array, n, mid, S);
@@ -85,6 +86,22 @@ void HybridSort(int *array, int n, int m, int S) {
     }
     else
         InsertionSort(array, n, m);
+
+    //algo B
+    // if (m - n <= 0) return;
+    
+    // if (mid - n + 1 <= S) {
+    //     InsertionSort(arr, n, mid);
+    // } else {
+    //     HybridSort(arr, n, mid, S); 
+    // }
+    
+    // if (m - mid <= S) {
+    //     InsertionSort(arr, mid + 1, m);
+    // } else {
+    //     HybridSort(arr, mid + 1, m, S);
+    // }
+    // Merge(arr, n, mid, m);
 }
 
 void MergeSort(int *array, int n, int m) {
