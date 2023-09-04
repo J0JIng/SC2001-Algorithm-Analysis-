@@ -77,7 +77,7 @@ int compare(int a, int b) {
 void HybridSort(int *array, int n, int m, int S) {
     int mid = (n + m) / 2;
 
-    // algo A
+    // Algo A
     if (m - n <= 0) return;
     else if (m - n > S) {
         HybridSort(array, n, mid, S);
