@@ -7,26 +7,23 @@ class Main {
         int[] numbers = createArray();
         // insertionSort(numbers, 0, numbers.length - 1);
         // mergeSort(numbers, 0, numbers.length - 1);
-
-        int S = 6;
-
+        int S = 5;
         hybridMergeSort(numbers, 0, numbers.length - 1, S);
-
         isListSorted(numbers);
-        System.out.println(String.format("Number of Comparisons (keyComparisons): %s", String.valueOf(keyComparisons)));
+        System.out.println(String.valueOf(keyComparisons));
     }
 
-    static int keyComparisons = 0;
+    static long keyComparisons = 0;
 
 
     // Arr: array to be sorted, left: left index of array, right: right index of array
-    static void insertionSort(int[] Arr, int left, int right) {
+    static void insertionSort(int[] arr, int left, int right) {
         for (int i = left + 1; i <= right; i++) {
             for (int j = i; j > left; j--) {
-                if (Arr[j] < Arr[j - 1]) {
-                    int temp = Arr[j];
-                    Arr[j] = Arr[j - 1];
-                    Arr[j - 1] = temp;
+                if (arr[j] < arr[j - 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
                     keyComparisons++;
                 } else {
                     break;
@@ -79,20 +76,16 @@ class Main {
 
         // Check first half of the array is less than or equal to S
         if (mid - left + 1 <= S) {
-        // Insertion Sort -> when size of subarray is less than or equal to S
-        insertionSort(arr, left, mid);} 
+            insertionSort(arr, left, mid);} 
         else {
-        // Merge Sort -> when size of subarray is more than S
-        hybridMergeSort(arr, left, mid, S); 
+            hybridMergeSort(arr, left, mid, S); 
         }
            
         // Check Second half of the array is less than or equal to S
         if (right - mid <= S) {
-        // Insertion Sort -> when size of subarray is less than or equal to S
-        insertionSort(arr, mid + 1, right);} 
+            insertionSort(arr, mid + 1, right);} 
         else {
-        // Merge Sort -> when size of subarray is more than S
-        hybridMergeSort(arr, mid + 1, right, S);
+            hybridMergeSort(arr, mid + 1, right, S);
         }
         
         merge(arr, left, mid, right);
