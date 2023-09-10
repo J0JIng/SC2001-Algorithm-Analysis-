@@ -13,19 +13,21 @@ class Main {
         hybridMergeSort(numbers, 0, numbers.length - 1, S);
 
         isListSorted(numbers);
-        System.out.println(String.format("Number of Comparisons (Count): %s", String.valueOf(count)));
+        System.out.println(String.format("Number of Comparisons (keyComparisons): %s", String.valueOf(keyComparisons)));
     }
 
-    static int count = 0;
+    static int keyComparisons = 0;
 
-    static void insertionSort(int[] unsortedArr, int left, int right) {
-        for (int i = left; i <= right; i++) {
+
+    // Arr: array to be sorted, left: left index of array, right: right index of array
+    static void insertionSort(int[] Arr, int left, int right) {
+        for (int i = left + 1; i <= right; i++) {
             for (int j = i; j > left; j--) {
-                if (unsortedArr[j] < unsortedArr[j - 1]) {
-                    int temp = unsortedArr[j];
-                    unsortedArr[j] = unsortedArr[j - 1];
-                    unsortedArr[j - 1] = temp;
-                    count++;
+                if (Arr[j] < Arr[j - 1]) {
+                    int temp = Arr[j];
+                    Arr[j] = Arr[j - 1];
+                    Arr[j - 1] = temp;
+                    keyComparisons++;
                 } else {
                     break;
                 }
@@ -35,7 +37,7 @@ class Main {
 
     static void mergeSort(int[] arr, int left, int right) {
         if (left < right) {
-            count++;
+            keyComparisons++;
             int mid = left + (right - left) / 2;
             mergeSort(arr, left, mid);
             mergeSort(arr, mid + 1, right);
@@ -43,9 +45,11 @@ class Main {
         }
     }
 
+
+    /*
     static void hybridMergeSort(int[] arr, int left, int right, int S) {
         if (left < right) {
-            count++;
+            keyComparisons++;
             int mid = left + (right - left) / 2;
             if (mid - left + 1 <= S) {
                 insertionSort(arr, left, mid);
@@ -63,6 +67,39 @@ class Main {
         }
     }
 
+    */
+
+    /*  arr: array of input data, left: left index of array, right: right index of array, 
+        S: size of subarray to call insertion sort
+    */
+    static void hybridMergeSort(int[] arr, int left, int right, int S) {
+        
+        if (right - left <= 0) return ; 
+        int mid = left + (right - left) / 2;
+
+        // Check first half of the array is less than or equal to S
+        if (mid - left + 1 <= S) {
+        // Insertion Sort -> when size of subarray is less than or equal to S
+        insertionSort(arr, left, mid);} 
+        else {
+        // Merge Sort -> when size of subarray is more than S
+        hybridMergeSort(arr, left, mid, S); 
+        }
+           
+        // Check Second half of the array is less than or equal to S
+        if (right - mid <= S) {
+        // Insertion Sort -> when size of subarray is less than or equal to S
+        insertionSort(arr, mid + 1, right);} 
+        else {
+        // Merge Sort -> when size of subarray is more than S
+        hybridMergeSort(arr, mid + 1, right, S);
+        }
+        
+        merge(arr, left, mid, right);
+        
+    }
+/* 
+    // arr: array that needs to be merged, left: index of first half, m: index of second half
     static void merge(int[] arr, int left, int mid, int right) {
         int leftLength = mid - left + 1;
         int rightLength = right - mid;
@@ -84,11 +121,11 @@ class Main {
         // merge
         while(l < leftLength && r < rightLength) {
             if (leftArr[l] <= rightArr[r]) {
-                count++;
+                keyComparisons++;
                 arr[k] = leftArr[l];
                 l++;
             } else {
-                count++;
+                keyComparisons++;
                 arr[k] = rightArr[r];
                 r++;
             }
@@ -107,6 +144,70 @@ class Main {
             k++;
         }
     }
+       */ 
+    
+     
+    // arr: array that needs to be merged, left: index of first half, m: index of second half
+    static void merge(int[] arr, int left, int mid, int right) {
+        int leftLength = mid - left + 1;
+        int rightLength = right - mid;
+
+        // split the arr into two halves
+        int[] leftArr = new int[leftLength];
+        int[] rightArr = new int[rightLength];
+        for (int i = 0; i < leftLength; i++) {
+            leftArr[i] = arr[left + i];
+        }
+        for (int i = 0; i < rightLength; i++) {
+            rightArr[i] = arr[mid + i + 1];
+        }
+
+        int l = 0;
+        int r = 0;
+        int k = left;
+
+        //  while both halves are not empty
+        while(l < leftLength && r < rightLength) {
+            keyComparisons++;
+            // 1st element of 1st half is smaller
+            if (leftArr[l] < rightArr[r]) 
+            {
+                arr[k] = leftArr[l];
+                l++;
+            }
+            // 1st element of 2nd half is smaller
+            else if (leftArr[l] > rightArr[r])
+            {
+                arr[k] = rightArr[r];
+                r++;
+            }
+            // Both element equal 
+            else 
+            {
+                arr[k++] = leftArr[l]; 
+                arr[k] = rightArr[r];
+                l++;
+                r++;
+            }
+            k++;
+        }
+
+        // while left half is not empty
+        while (l < leftLength) {
+            arr[k] = leftArr[l];
+            l++;
+            k++;
+        }
+
+        // While right half is not empty
+        while (r < rightLength) {
+            arr[k] = rightArr[r];
+            r++;
+            k++;
+        }
+    }
+
+
 
     /* Helpers */
 
