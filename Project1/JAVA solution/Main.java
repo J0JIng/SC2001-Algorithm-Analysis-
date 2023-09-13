@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,14 +8,28 @@ class Main {
         int[] numbers = createArray();
         // insertionSort(numbers, 0, numbers.length - 1);
         // mergeSort(numbers, 0, numbers.length - 1);
-        int S = 5;
-        hybridMergeSort(numbers, 0, numbers.length - 1, S);
-        isListSorted(numbers);
-        System.out.println(String.valueOf(keyComparisons));
+
+        // Find keyComparisons VS S from range(1,100)
+        for (int i = 1; i <= 100; i++) {
+            int S = i;
+            int[] copy = Arrays.copyOf(numbers, numbers.length); // Create a copy of the original unsorted array
+            // Record the start time
+            long startTime = System.nanoTime();
+            hybridMergeSort(copy, 0, copy.length - 1, S); // Sort the copy
+            // Record the end time
+            long endTime = System.nanoTime();
+            isListSorted(copy); // Check if the copy is sorted
+
+            // Print Results 
+            //System.out.print("Number of Comparisons for S = " + S + " is: ");
+            //System.out.println(String.valueOf(keyComparisons));
+            System.out.println((endTime - startTime));
+
+            keyComparisons = 0;
+        }
     }
 
     static long keyComparisons = 0;
-
 
     // Arr: array to be sorted, left: left index of array, right: right index of array
     static void insertionSort(int[] arr, int left, int right) {
@@ -33,6 +48,7 @@ class Main {
         }
     }
 
+    // Arr: array to be sorted, left: left index of array, right: right index of array
     static void mergeSort(int[] arr, int left, int right) {
         if (left < right) {
             keyComparisons++;
@@ -42,30 +58,6 @@ class Main {
             merge(arr, left, mid, right);
         }
     }
-
-
-    /*
-    static void hybridMergeSort(int[] arr, int left, int right, int S) {
-        if (left < right) {
-            keyComparisons++;
-            int mid = left + (right - left) / 2;
-            if (mid - left + 1 <= S) {
-                insertionSort(arr, left, mid);
-            } else {
-                hybridMergeSort(arr, left, mid, S); 
-            }
-           
-            if (right - mid <= S) {
-                insertionSort(arr, mid + 1, right);
-            } else {
-                hybridMergeSort(arr, mid + 1, right, S);
-            }
-
-            merge(arr, left, mid, right);
-        }
-    }
-
-    */
 
     /*  arr: array of input data, left: left index of array, right: right index of array, 
         S: size of subarray to call insertion sort
@@ -92,54 +84,6 @@ class Main {
         merge(arr, left, mid, right);
         
     }
-/* 
-    // arr: array that needs to be merged, left: index of first half, m: index of second half
-    static void merge(int[] arr, int left, int mid, int right) {
-        int leftLength = mid - left + 1;
-        int rightLength = right - mid;
-
-        // split the arr into two halves
-        int[] leftArr = new int[leftLength];
-        int[] rightArr = new int[rightLength];
-        for (int i = 0; i < leftLength; i++) {
-            leftArr[i] = arr[left + i];
-        }
-        for (int i = 0; i < rightLength; i++) {
-            rightArr[i] = arr[mid + i + 1];
-        }
-
-        int l = 0;
-        int r = 0;
-        int k = left;
-
-        // merge
-        while(l < leftLength && r < rightLength) {
-            if (leftArr[l] <= rightArr[r]) {
-                keyComparisons++;
-                arr[k] = leftArr[l];
-                l++;
-            } else {
-                keyComparisons++;
-                arr[k] = rightArr[r];
-                r++;
-            }
-            k++;
-        }
-
-        // add the remaining elements into the arr
-        while (l < leftLength) {
-            arr[k] = leftArr[l];
-            l++;
-            k++;
-        }
-        while (r < rightLength) {
-            arr[k] = rightArr[r];
-            r++;
-            k++;
-        }
-    }
-       */ 
-    
      
     // arr: array that needs to be merged, left: index of first half, m: index of second half
     static void merge(int[] arr, int left, int mid, int right) {
@@ -200,8 +144,6 @@ class Main {
             k++;
         }
     }
-
-
 
     /* Helpers */
 
