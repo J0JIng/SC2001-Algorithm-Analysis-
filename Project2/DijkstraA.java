@@ -59,9 +59,7 @@ class DijkstraA {
     }
 
     private static void Print(int[] dist, int[] pi) {
-        
     	System.out.println("Vertex \t Distance from Source \t Predecessor");
-        
         for (int i = 0; i < dist.length; i++) {
             System.out.println(i + "\t\t  " + dist[i] + "\t\t     " + pi[i]);
         }
@@ -77,7 +75,7 @@ class DijkstraA {
                 {0, 3, 9, 2, 0}
                };
 
-            dijkstra(graph, 0);
+        dijkstra(graph, 0);
     
     }   
 }
