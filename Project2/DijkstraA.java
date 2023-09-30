@@ -1,10 +1,27 @@
 package Project2;
 import java.util.Arrays;
 import java.util.PriorityQueue;
+import java.util.Scanner;
 
 class DijkstraA {
     
 	private static final int INF = Integer.MAX_VALUE;
+
+    public static void main (String[] args) {
+        System.out.println("Part A: Dijkstra's Algo with adjacency matrix and array for priority queue");
+        Scanner sc = new Scanner(System.in);
+        int numOfVertices = sc.nextInt();
+        int[][] graph = new int[numOfVertices][numOfVertices];
+        while (sc.hasNext()) {
+            int parentVertex = sc.nextInt();
+            int nextVertex = sc.nextInt();
+            int nextWeight = sc.nextInt();
+            graph[parentVertex][nextVertex] = nextWeight;
+        }
+        sc.close();
+
+        dijkstra(graph, 0);
+    }   
 
     public static void dijkstra(int[][] graph, int source) {
         int n = graph.length;
@@ -64,18 +81,4 @@ class DijkstraA {
             System.out.println(i + "\t\t  " + dist[i] + "\t\t     " + pi[i]);
         }
     }
-	
-	public static void main (String[] args) {
-        System.out.println("Part A: Dijkstra's Algo with adjacency matrix and array for priority queue");
-        int[][] graph = {
-                {0, 10, 0, 0, 5},
-                {0, 0, 1, 0, 2},
-                {0, 0, 0, 4, 0},
-                {7, 0, 6, 0, 0},
-                {0, 3, 9, 2, 0}
-               };
-
-        dijkstra(graph, 0);
-    
-    }   
 }
