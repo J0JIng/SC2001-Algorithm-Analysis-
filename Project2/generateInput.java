@@ -10,8 +10,10 @@ public class generateInput {
         Random random = new Random();
         boolean isSparse = false;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Do you want sparse (s) or dense (d)");
+        System.out.println("Do you want sparse (s) or dense (d)?");
         String input = sc.nextLine();
+        System.out.println("How many vertices do you want?");
+        int noOfVertices = Integer.parseInt(sc.nextLine());
         sc.close();
         if (input.equals("s")) {
             isSparse = true;
@@ -21,7 +23,6 @@ public class generateInput {
             System.out.println("invalid input - isSparse set to false");
             isSparse = false; 
         }
-        int noOfVertices = 5;
         int maxPossibleWeight = 20;
 
         try {
