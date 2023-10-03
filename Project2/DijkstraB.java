@@ -12,9 +12,9 @@ class DijkstraB {
 
     public static void dijkstra(List<List<Vertex>> adjLst, int source) {
         int numOfVertices = adjLst.size();
-        int[] S = new int[numOfVertices]; // represents set of vertices whose shortest paths from source node have been determined
-        int[] d = new int[numOfVertices];  // to store the estimated lengths of shortest path form the source node to all vertices
-        int[] pi = new int[numOfVertices]; // to store the predecessors for each vertex;
+        int[] S = new int[numOfVertices];
+        int[] d = new int[numOfVertices];
+        int[] pi = new int[numOfVertices];
         Arrays.fill(d, Integer.MAX_VALUE);
         Arrays.fill(pi, -1);
 
@@ -28,7 +28,7 @@ class DijkstraB {
             pq.add(neighbour);
         }
 
-        while (!pq.isEmpty() || !isAllVerticesVisited(S)) {
+        while (!pq.isEmpty() && !isAllVerticesVisited(S)) {
             Vertex v = pq.poll();
             int currentVertexIndex = v.index;
             int currentVertexWeight = v.weight;
@@ -41,7 +41,7 @@ class DijkstraB {
             }
 
             List<Vertex> neighbours = adjLst.get(currentVertexIndex);
-            for (int i = 0; i < neighbours.size(); i++) { // add all the neighbours in pq
+            for (int i = 0; i < neighbours.size(); i++) {
                 Vertex neighbour = neighbours.get(i);
                 pq.add(neighbour);
             }
