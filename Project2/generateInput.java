@@ -24,7 +24,6 @@ public class generateInput {
 
     public static void generateGraph(boolean isSparse,int noOfVertices){
         Random random = new Random();
-        //vector<Integer>
         try {
             String filename = isSparse ? "test/sparseTest.txt" : "test/denseTest.txt";
             BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
