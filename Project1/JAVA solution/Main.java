@@ -9,26 +9,28 @@ class Main {
         // insertionSort(numbers, 0, numbers.length - 1);
         // mergeSort(numbers, 0, numbers.length - 1);
 
-        // Find keyComparisons VS S from range(1,100)
-        for (int i = 1; i <= 100; i++) {
+        // Find keyComparisons VS S from range(1,x)
+        for (int i = 1; i <= 20; i++) {
             int S = i;
             int[] copy = Arrays.copyOf(numbers, numbers.length); // Create a copy of the original unsorted array
             // Record the start time
-            long startTime = System.nanoTime();
+            //long startTime = System.nanoTime();
             hybridMergeSort(copy, 0, copy.length - 1, S); // Sort the copy
             // Record the end time
-            long endTime = System.nanoTime();
+            //long endTime = System.nanoTime();
             isListSorted(copy); // Check if the copy is sorted
 
             // Print Results 
             //System.out.print("Number of Comparisons for S = " + S + " is: ");
-            //System.out.println(String.valueOf(keyComparisons));
-            System.out.println((endTime - startTime));
+            System.out.println(String.valueOf(keyComparisons));
+            
+            //System.out.println((endTime - startTime));
 
             keyComparisons = 0;
         }
     }
 
+    
     static long keyComparisons = 0;
 
     // Arr: array to be sorted, left: left index of array, right: right index of array
