@@ -1,4 +1,6 @@
 import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 import java.io.BufferedWriter;
@@ -35,37 +37,41 @@ public class generateInput {
                 int noOfEdges = noOfVertices - 1;
                 HashSet<Integer> set = new HashSet<>();
 
-                /* Helper */
-                //int[] parent = new int[noOfVertices];
-                //int[] sz = new int[noOfVertices];
-
-                //for (int i = 0; i < noOfVertices; i++) {
-                //    parent[i] = i;
-                //    sz[i] = 1;
-                // }
-
-                for (int i = 0; i < noOfEdges; i++) {
-                    int randomVertex1 = random.nextInt(noOfVertices);
-                    int randomVertex2 = random.nextInt(noOfVertices);
-                    set.add(randomVertex1);
-
-                    // Ensure that randomVertex1 and randomVertex2 are in different components
-                    while (set.contains(randomVertex2)) {
-                        randomVertex2 = random.nextInt(noOfVertices);
-                    }
-                    //set.add(randomVertex2);
-
-                    // Union the components using WQUPC
-                    //Union(parent,sz,randomVertex1,randomVertex2);
-                    
-                    int randomWeight = 1 + random.nextInt(MAXEDGEWEIGHT);
-                    String entry = String.format("%d %d %d", randomVertex1, randomVertex2, randomWeight);
-                    writer.write(entry);
-                    writer.newLine();
+                // Generate a connected graph
+                int edge_count = 0;
+                ArrayList<Integer> list = new ArrayList<Integer>();
+                for (int i = 0; i < noOfVertices; i++) {
+                    list.add(i);
                 }
 
-                //if(ifConnected(parent)) System.out.println("Sparse Graph connected");
-                //else                    System.out.println("Sparse Graph not connected");
+                int startnode = list.remove(0);
+                int nextnode;
+                while (!list.isEmpty()) {
+                    nextnode = list.remove(new Random().nextInt(list.size()));
+                    int randomWeight = 1 + random.nextInt(MAXEDGEWEIGHT);
+                    String entry = String.format("%d %d %d", startnode, nextnode, randomWeight);
+                    writer.write(entry);
+                    writer.newLine();
+                    startnode = nextnode;
+                    edge_count++;
+                }
+
+                // Generate the remaining edges while ensuring connectivity
+                while (edge_count != noOfEdges) {
+                    int a = new Random().nextInt(noOfVertices);
+                    int b;
+
+                    // Ensure that node 'b' is not the same as 'a' and they are not already connected
+                    do {
+                        b = new Random().nextInt(noOfVertices);
+                    } while (a == b);
+
+                    int randomWeight = 1 + random.nextInt(MAXEDGEWEIGHT);
+                    String entry = String.format("%d %d %d", a, b, randomWeight);
+                    writer.write(entry);
+                    writer.newLine();
+                    edge_count++;
+                }
             } 
             
             // generate dense graph
