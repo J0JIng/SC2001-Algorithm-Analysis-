@@ -1,4 +1,8 @@
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Set;
 import java.util.HashSet;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -8,7 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class generateInput {
-    public static final int MAXEDGEWEIGHT = 20;
+    public static final int MAX_EDGE_WEIGHT = 20;
     public static void main (String[] args){
         Scanner sc = new Scanner(System.in);
         
@@ -32,44 +36,37 @@ public class generateInput {
 
             // generate sparse graph
             if (isSparse) { 
-
+                int count = 0;
                 int noOfEdges = noOfVertices - 1;
-                HashSet<Integer> set = new HashSet<>();
+                
+                Set<Integer> setOfConnectedVertices = new HashSet<>();
+                List<Integer> setIndex = new ArrayList<>(); // used for indexing and randomisation
 
-                // Generate a connected graph
-                int edge_count = 0;
-                ArrayList<Integer> list = new ArrayList<Integer>();
-                for (int i = 0; i < noOfVertices; i++) {
-                    list.add(i);
-                }
+                int startingVertex = random.nextInt(noOfVertices);
+                setOfConnectedVertices.add(startingVertex);
+                setIndex.add(startingVertex);
 
-                int startnode = list.remove(0);
-                int nextnode;
-                while (!list.isEmpty()) {
-                    nextnode = list.remove(new Random().nextInt(list.size()));
-                    int randomWeight = 1 + random.nextInt(MAXEDGEWEIGHT);
-                    String entry = String.format("%d %d %d", startnode, nextnode, randomWeight);
+                while (count < noOfEdges) {
+                    int randomIndex = random.nextInt(setIndex.size());
+                    int randomVertex1 = setIndex.get(randomIndex);
+                    int randomVertex2 = random.nextInt(noOfVertices);
+                    while (setOfConnectedVertices.contains(randomVertex2)) { // loop until a vertex that is not connected
+                        randomVertex2 = random.nextInt(noOfVertices);
+                    }
+
+                    setOfConnectedVertices.add(randomVertex2); 
+                    setIndex.add(randomVertex2);
+                    
+                    int randomWeight = 1 + random.nextInt(MAX_EDGE_WEIGHT);
+                    int randomiseToAndFrom = random.nextInt(2); // output 0 or 1
+
+                    String entry = String.format("%d %d %d", randomVertex1, randomVertex2, randomWeight);
+                    if (randomiseToAndFrom == 1) { // randomisation of direction
+                        entry = String.format("%d %d %d", randomVertex2, randomVertex1, randomWeight);
+                    }
                     writer.write(entry);
-                    writer.newLine();
-                    startnode = nextnode;
-                    edge_count++;
-                }
-
-                // Generate the remaining edges while ensuring connectivity
-                while (edge_count != noOfEdges) {
-                    int a = new Random().nextInt(noOfVertices);
-                    int b;
-
-                    // Ensure that node 'b' is not the same as 'a' and they are not already connected
-                    do {
-                        b = new Random().nextInt(noOfVertices);
-                    } while (a == b);
-
-                    int randomWeight = 1 + random.nextInt(MAXEDGEWEIGHT);
-                    String entry = String.format("%d %d %d", a, b, randomWeight);
-                    writer.write(entry);
-                    writer.newLine();
-                    edge_count++;
+                    writer.newLine(); 
+                    count++;
                 }
             } 
             
@@ -80,7 +77,7 @@ public class generateInput {
                         if (i == j) {
                             continue;
                         }
-                        int randomWeight = 1 + random.nextInt(MAXEDGEWEIGHT);
+                        int randomWeight = 1 + random.nextInt(MAX_EDGE_WEIGHT);
                         String entry = String.format("%d %d %d", i, j, randomWeight);
                         writer.write(entry);
                         writer.newLine(); 
