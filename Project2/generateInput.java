@@ -85,8 +85,6 @@ public class generateInput {
                     writer.write(entry);
                     writer.newLine(); 
                     count++;
-                    writer.newLine(); 
-                    count++;
                 }
             } 
             
