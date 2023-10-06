@@ -14,6 +14,7 @@ import java.io.IOException;
 public class generateInput {
     public static final int MAX_EDGE_WEIGHT = 20;
     public static void main (String[] args){
+        /*
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Do you want sparse (s) or dense (d)?");
@@ -24,6 +25,19 @@ public class generateInput {
 
         boolean isSparse = input.equalsIgnoreCase("s");
         generateGraph(isSparse, noOfVertices);
+        */
+
+        if (args.length != 2) {
+            //System.out.println("Usage: java generateInput <s/d> <numOfVertices>");
+            System.exit(1);
+        }
+
+        String input = args[0];
+        int noOfVertices = Integer.parseInt(args[1]);
+
+        boolean isSparse = input.equalsIgnoreCase("s");
+        generateGraph(isSparse, noOfVertices);
+
     }
 
     public static void generateGraph(boolean isSparse,int noOfVertices){
@@ -86,7 +100,7 @@ public class generateInput {
             }
 
             writer.close();
-            System.out.println("Results saved to " + filename);
+            //System.out.println("Results saved to " + filename);
         } 
         
         catch (IOException e){

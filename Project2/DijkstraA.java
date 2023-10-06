@@ -10,7 +10,7 @@ class DijkstraA {
 
     public static void main (String[] args) {
 
-        System.out.println("Part A: Dijkstra's Algo with adjacency matrix and array for priority queue");
+        //System.out.println("Part A: Dijkstra's Algo with adjacency matrix and array for priority queue");
         Scanner sc = new Scanner(System.in);
         int numOfVertices = sc.nextInt();
         int[][] graph = new int[numOfVertices][numOfVertices];
@@ -23,7 +23,10 @@ class DijkstraA {
         }
         sc.close();
 
+        long startTime = System.currentTimeMillis();
         dijkstra(graph, 0);
+        long endTime = System.currentTimeMillis();
+        System.out.println((endTime - startTime));
     }   
 
     public static void dijkstra(int[][] graph, int source) {
@@ -75,7 +78,7 @@ class DijkstraA {
                 }
             }
         }
-            Print(d, pi);
+            //Print(d, pi);
     }
     
     /*
