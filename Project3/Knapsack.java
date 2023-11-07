@@ -8,7 +8,7 @@ class Knapsack {
     
     static void infinityKnapsack(int[] w, int[] p, int C, int n) {
         int[] profit = new int[C + 1];
-        for (int capacity = 1; capacity <= C; capacity++) {
+        for (int capacity = 0; capacity <= C; capacity++) {
             for (int object = 0; object < n; object++) {
                 int weight = w[object];
                 if (capacity - weight >= 0) {
@@ -44,7 +44,7 @@ class Knapsack {
     // helpers
     static void printArrayWithCapacity(int[] arr, int capacity) {
         System.out.print(String.format("P(%d): ", capacity)); 
-        for (int i = 0; i < capacity; i++) {
+        for (int i = 0; i <= capacity; i++) {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
