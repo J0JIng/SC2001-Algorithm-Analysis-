@@ -1,6 +1,9 @@
 ## SC2001 Algorithm Analysis
 
 ![Algorithm Design](https://img.shields.io/badge/Algorithm_Design-8A2BE2?style=for-the-badge&logoColor=white)
+![Sorting Algorithm](https://img.shields.io/badge/Sorting_Algorithm-DE6798?style=for-the-badge&logoColor=white)
+![Greedy Algorithm](https://img.shields.io/badge/Greedy_Algorithm-7D8DF1?style=for-the-badge&logoColor=white)
+![Dynamic Programming](https://img.shields.io/badge/Dynamic_Programming-CBD198?style=for-the-badge&logoColor=white)
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
