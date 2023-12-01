@@ -4,7 +4,7 @@
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 
 ### Abstract:
-This project addresses how the choice of the input graph representation and the priority queue implementation will affect the time complexity of Dijkstra’s Algorithm. In this repository it contains the following files, 
+This project addresses how the choice of the input graph representation and the priority queue implementation will affect the time complexity of Dijkstra’s Algorithm. This repository, contains the following files, 
 
 1. [DijkstraA.java](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/blob/main/Project2/DijkstraA.java),
 graph G is represented using an Adjacency Matrix with an Array-based Priority Queue.
@@ -42,7 +42,7 @@ Assumptions:
 By defining these characteristics, we aim to explore the behaviour and performance of algorithms on graphs with varying densities.<br />
 Once the graph is generated, it is saved in a `.txt` file. The `.txt` file would be read and converted to a adjacency matrix or adjacency list representation in the respective [DijkstraA.java](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/blob/main/Project2/DijkstraA.java) and [DijkstraB.java](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/blob/main/Project2/DijkstraB.java) files. 
 
-To find more details of our graph generation, click [here](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/blob/main/Project2/generateInput.java). 
+To find more details on our graph generation, click [here](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/blob/main/Project2/generateInput.java). 
 
 ### 2. Implementation of Dijkstra’s Algorithm.
 
@@ -104,4 +104,4 @@ Dense Graph:
 
 ### Conclusion
 
-From our empirical analysis, DijkstraB perform better on a sparse graph while DijkstraA perform better on a dense graph.
+From our empirical analysis, DijkstraB performs better on a sparse graph, while DijkstraA performs better on a dense graph.
