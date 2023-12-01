@@ -1,5 +1,10 @@
 ## Project 3: Dynamic Programming - **unlimited** knapSack 
 
+![Algorithm Design](https://img.shields.io/badge/Algorithm_Design-8A2BE2?style=for-the-badge&logoColor=white)
+![Dynamic Programming](https://img.shields.io/badge/Dynamic_Programming-4433D6?style=for-the-badge&logoColor=white)
+![KnapSack](https://img.shields.io/badge/KnapSack-B1DE67?style=for-the-badge&logoColor=white)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
+
 ### Abstract:
 This project addresses the classic knapsack problem, wherein a knapsack of capacity weight C and n types of objects are given.
 
