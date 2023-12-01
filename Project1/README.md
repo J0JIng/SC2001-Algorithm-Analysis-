@@ -1,1 +1,1 @@
-## Project 1 - Merge Insertion Sort implementation 
+## Project 1: Integration of Mergesort & Insertion Sort
