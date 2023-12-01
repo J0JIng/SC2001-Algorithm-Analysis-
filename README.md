@@ -14,3 +14,28 @@ This repository contains the following projects for the SC2001. More information
 1. [Project1: Integration of Mergesort & Insertion Sort](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/tree/main/Project1)
 2. [Project2: Dijkstra’s Algorithm](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/tree/main/Project2)
 3. [Project3: Dynamic Programming - Unlimited knapSack](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/tree/main/Project3)
+
+### Usage
+
+These setup instructions will guide you through the process of cloning the repository, navigating to the cloned repository, compiling the project, and running the project using `.sh` files.
+
+Note: These setup instructions are designed for a Bash shell. If you are using a different shell or operating system, adjustments may be needed.
+
+1. Open your terminal.
+
+2. Clone the repository by entering the following command:
+
+   ```bash
+   git clone https://github.com/J0JIng/SC2001-Algorithm-Analysis-.git
+   ```
+3. Navigate to the cloned repository by entering the following command:
+
+   ```bash
+   cd SC2001-Algorithm-Analysis-/Project1
+   ```
+4. Compile and run the project by entering the following command. Ensure you are using Bash:
+
+   ```bash
+   ./run.sh
+   ```
+   
