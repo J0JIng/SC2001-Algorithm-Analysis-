@@ -5,18 +5,18 @@ This project addresses the classic knapsack problem, wherein a knapsack of capac
 
 Each object of the ith type possesses weight wi and profit pi, all of which are positive integers (i = 0, 1, …, n-1). The availability of an **unlimited** supply for each object type prompts the exploration of an optimal solution. 
 
-The objective is to determine the maximum profit attainable by selecting objects to fill the knapsack within its specified capacity. The study introduces the notation P(C,i) to denote the maximum profit achievable by strategically packing objects i into the knapsack of capacity C. The following contains our findings.
+The objective is to determine the maximum profit attainable by selecting objects to fill the knapsack within its specified capacity. The study introduces the notation P(C) to denote the maximum profit achievable by strategically packing objects into the knapsack of capacity C. The following contains our findings.
 
-### 1. Recursive definition of the function P(c,i)
+### 1. Recursive definition of the function P(c)
 
 ```math
-p(c,j) = \begin{cases}
+p(c) = \begin{cases}
   0, & \text{if } c = 0 \text{ or } j = 0, \\
    \max_{0 \leq i < n} \{ P(C - w_i) + p_i \}, & \text{if } c \geq 1 \text{ and } j \geq 1, \text{ otherwise.} \\
 \end{cases}
 ```
 Here:
-- \(P(C,i)\) represents the maximum profit achievable for a knapsack of remaining capacity \(C,i\).
+- \(P(C)\) represents the maximum profit achievable for a knapsack of remaining capacity \(C\).
 - \(w_i\) is the weight of the ith type of object.
 - \(p_i\) is the profit of the ith type of object.
 - \(n\) is the total number of types of objects available.
@@ -74,10 +74,27 @@ For the given weights and profits given below:
 | Wᵢ   | 4 | 6 | 8 | 
 | Pᵢ   | 7 | 6 | 9 |
 
-![image](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/assets/111691710/e961b179-c155-4bf1-a431-4bd27de1ac01)
+Maximum profit at each iteration P(c)
 
-
-* Maximum profit : 21
+```bash
+----- Part A -----
+P(0): 0 
+P(1): 0 0
+P(2): 0 0 0
+P(3): 0 0 0 0
+P(4): 0 0 0 0 7
+P(5): 0 0 0 0 7 7
+P(6): 0 0 0 0 7 7 7
+P(7): 0 0 0 0 7 7 7 7
+P(8): 0 0 0 0 7 7 7 7 14
+P(9): 0 0 0 0 7 7 7 7 14 14
+P(10): 0 0 0 0 7 7 7 7 14 14 14
+P(11): 0 0 0 0 7 7 7 7 14 14 14 14
+P(12): 0 0 0 0 7 7 7 7 14 14 14 14 21
+P(13): 0 0 0 0 7 7 7 7 14 14 14 14 21 21
+P(14): 0 0 0 0 7 7 7 7 14 14 14 14 21 21 21
+```
+* Maximum profit P(14) : 21 
 
 For the given weights and profits given below:
 
@@ -86,6 +103,25 @@ For the given weights and profits given below:
 | Wᵢ   | 4 | 6 | 8 | 
 | Pᵢ   | 7 | 6 | 9 |
 
-![image](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/assets/111691710/1a7e3594-dbff-4699-8044-aad947ebb991)
+Maximum profit at each iteration P(c)
 
-* Maximum profit : 16
+```bash
+----- Part B -----
+P(0): 0
+P(1): 0 0
+P(2): 0 0 0
+P(3): 0 0 0 0
+P(4): 0 0 0 0 0 
+P(5): 0 0 0 0 0 7
+P(6): 0 0 0 0 0 7 7
+P(7): 0 0 0 0 0 7 7 7
+P(8): 0 0 0 0 0 7 7 7 9
+P(9): 0 0 0 0 0 7 7 7 9 9
+P(10): 0 0 0 0 0 7 7 7 9 9 14
+P(11): 0 0 0 0 0 7 7 7 9 9 14 14
+P(12): 0 0 0 0 0 7 7 7 9 9 14 14 14
+P(13): 0 0 0 0 0 7 7 7 9 9 14 14 14 16
+P(14): 0 0 0 0 0 7 7 7 9 9 14 14 14 16 16
+```
+
+* Maximum profit P(14) : 16
