@@ -76,10 +76,10 @@ From our empirical results, our team found that a small value S = 3 is optimal. 
 
 For a fixed value of s = 3 and Input size of 10m random integers. 
 
-Key Comparision: 
+### Key Comparision:
 ![image](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/assets/111691710/33f2c62b-61cd-44dd-906a-19b1c78cb04b)
 
-CPU Time:
+### CPU Time:<br />
 ![image](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/assets/111691710/9ccece2f-6bdf-456a-a982-4389564991d8)
 
 
