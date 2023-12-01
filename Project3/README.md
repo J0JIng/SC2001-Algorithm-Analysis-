@@ -100,7 +100,7 @@ For the given weights and profits given below:
 
 |      | 0 |1 | 2 |
 |------| --- | ---  | ---  | 
-| Wᵢ   | 4 | 6 | 8 | 
+| Wᵢ   | 5 | 6 | 8 | 
 | Pᵢ   | 7 | 6 | 9 |
 
 Maximum profit at each iteration P(c)
