@@ -16,8 +16,8 @@ The objective is to determine the maximum profit by selecting objects to fill th
 
 ```math
 p(c) = \begin{cases}
-  0, & \text{if } c = 0 \text{ or } j = 0, \\
-   \max_{0 \leq i < n} \{ P(C - w_i) + p_i \}, & \text{if } c \geq 1 \text{ and } j \geq 1, \text{ otherwise.} \\
+  0, & \text{if } c = 0 \text{ or } i = 0, \\
+   \max_{0 \leq i < n} \{ P(C - w_i) + p_i \}, & \text{if } c \geq 1 \text{ and } i \geq 1, \text{ otherwise.} \\
 \end{cases}
 ```
 Here:
