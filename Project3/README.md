@@ -67,6 +67,8 @@ infinityKnapsack(w, p, C, n):
 
 ### 4. Running result of P(14)
 
+### Part A
+
 For the given weights and profits given below:
 
 |      | 0 |1 | 2 |
@@ -96,7 +98,7 @@ P(14): 0 0 0 0 7 7 7 7 14 14 14 14 21 21 21
 ```
 Maximum profit P(14) : 21 
 
-<br />
+### Part B
 
 For the given weights and profits given below:
 
