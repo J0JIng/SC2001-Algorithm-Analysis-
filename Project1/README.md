@@ -8,7 +8,7 @@ Utilising a threshold value, S, the algorithm seamlessly transitions to Insertio
 
 The combined hybrid approach aims to improve overall sorting performance. The following contains our findings.
 
-### 1.Implementation of Hybrid Sort.
+### 1. Implementation of Hybrid Sort.
 
 The pseudocode for Hybrid Sort is as follows.
 
