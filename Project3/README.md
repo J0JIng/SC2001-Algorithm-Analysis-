@@ -1,4 +1,4 @@
-## Project 3: Dynamic Programming - Unlimited knapSack 
+## Project 3: Dynamic Programming - **unlimited** knapSack 
 
 ### Abstract:
 This project addresses the classic knapsack problem, wherein a knapsack of capacity weight C and n types of objects are given.
