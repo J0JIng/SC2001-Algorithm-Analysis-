@@ -1,5 +1,10 @@
 ## Project 1: Integration of Mergesort & Insertion Sort
 
+![Algorithm Design](https://img.shields.io/badge/Algorithm_Design-8A2BE2?style=for-the-badge&logoColor=white)
+![Sorting](https://img.shields.io/badge/Sorting-4433D6?style=for-the-badge&logoColor=white)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+
 ### Abstract:
 
 This project introduces a hybrid sorting algorithm by combining Mergesort with Insertion Sort for enhanced efficiency. 
