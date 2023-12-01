@@ -1,11 +1,11 @@
 ## Project 3: Dynamic Programming - Unlimited knapSack 
 
 ### Abstract:
-This project addresses the classic knapsack problem, wherein a knapsack of capacity weight C is given, along with n types of objects.
+This project addresses the classic knapsack problem, wherein a knapsack of capacity weight C and n types of objects are given.
 
 Each object of the ith type possesses weight wi and profit pi, all of which are positive integers (i = 0, 1, …, n-1). The availability of an **unlimited** supply for each object type prompts the exploration of an optimal solution. 
 
-The objective is to determine the maximum profit attainable by selecting objects to fill the knapsack within its specified capacity. The study introduces the notation P(C) to denote the maximum profit achievable by strategically packing objects into the knapsack of capacity C. The following contains our findings.
+The objective is to determine the maximum profit by selecting objects to fill the knapsack within its specified capacity. The study introduces the notation P(C) to denote the maximum profit achievable by strategically packing objects into the knapsack of capacity C. The following contains our findings.
 
 ### 1. Recursive definition of the function P(c)
 
@@ -73,7 +73,7 @@ For the given weights and profits given below:
 |------| --- | ---  | ---  | 
 | Wᵢ   | 4 | 6 | 8 | 
 | Pᵢ   | 7 | 6 | 9 |
-
+<br />
 Maximum profit at each iteration P(c)
 
 ```bash
@@ -94,7 +94,9 @@ P(12): 0 0 0 0 7 7 7 7 14 14 14 14 21
 P(13): 0 0 0 0 7 7 7 7 14 14 14 14 21 21
 P(14): 0 0 0 0 7 7 7 7 14 14 14 14 21 21 21
 ```
-* Maximum profit P(14) : 21 
+Maximum profit P(14) : 21 
+
+<br />
 
 For the given weights and profits given below:
 
@@ -102,7 +104,7 @@ For the given weights and profits given below:
 |------| --- | ---  | ---  | 
 | Wᵢ   | 5 | 6 | 8 | 
 | Pᵢ   | 7 | 6 | 9 |
-
+<br />
 Maximum profit at each iteration P(c)
 
 ```bash
@@ -124,4 +126,4 @@ P(13): 0 0 0 0 0 7 7 7 9 9 14 14 14 16
 P(14): 0 0 0 0 0 7 7 7 9 9 14 14 14 16 16
 ```
 
-* Maximum profit P(14) : 16
+Maximum profit P(14) : 16
