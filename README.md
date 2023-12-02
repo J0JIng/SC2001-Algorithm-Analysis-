@@ -12,7 +12,7 @@ This repository includes projects focusing on algorithm design and analysis usin
 
 ### Projects
 
-This repository contains the following projects for the SC2001. More information is included in the project's repective README.  
+This repository contains the following projects for the SC2001. More information is included in the project's respective README.   
 
 1. [Project1: Integration of Mergesort & Insertion Sort](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/tree/main/Project1)
 2. [Project2: Dijkstra’s Algorithm](https://github.com/J0JIng/SC2001-Algorithm-Analysis-/tree/main/Project2)
